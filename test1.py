@@ -9,7 +9,6 @@ from chain import Chain
 from data import Data
 
 # Transmon parameters
-b = 6
 E_C = 1  # charging energy
 n_0 = 10  # 10 # number of CP
 E_J_max = 5  # (Wq+E_C)**2/8/E_C
