@@ -29,6 +29,7 @@ n_0_int = parameters.n_0_int
 max_n_g = 10
 n_g_array = np.linspace(-max_n_g, max_n_g, 800)
 xr = 5
+a = 4
 
 # Parameters from the article
 E_C = 5.393879300028895374e-01  # from article
