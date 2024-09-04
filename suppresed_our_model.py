@@ -10,7 +10,6 @@ import parameters
 """
 Below code contains the model for the transmon + dot system developed by Tali Shnaider and Eytan Grosfeld.
 """
-a = 5
 
 # Parameters
 E_C = parameters.E_C

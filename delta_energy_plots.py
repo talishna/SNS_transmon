@@ -9,7 +9,6 @@ from suppresed_our_model import eigenvalues_analytical_n_g_0
 from suppresed_our_model import eigenvalues_N_g_n_g_0_even
 
 import parameters
-a = 5
 
 n_g_array = parameters.n_g_array
 N_g_array = parameters.N_g_array
