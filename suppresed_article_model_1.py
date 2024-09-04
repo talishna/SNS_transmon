@@ -7,6 +7,7 @@ from suppresed_our_model import create_upper_triangle_of_3d_array
 from suppresed_our_model import plot_x_y_color
 import parameters
 from scipy.optimize import brentq
+a = 5
 
 # page 167 in my notability note - this is the model from the suppressed paper eq (2)
 # in this code I want to create the hamiltonian for the system in the charge basis for each n_g, diagonalize it, plot

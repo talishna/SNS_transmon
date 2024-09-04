@@ -4,7 +4,7 @@ import time
 from transmon import Transmon
 from cavity import Cavity
 from chain import Chain
-a = 4
+a = 5
 
 class TotalHamiltonian:
     """

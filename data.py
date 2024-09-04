@@ -1,6 +1,6 @@
 import numpy as np
 from total_hamiltonian import TotalHamiltonian
-
+a = 5
 
 class Data:
     """
