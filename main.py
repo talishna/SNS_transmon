@@ -1,10 +1,14 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import time
 from transmon import Transmon
 from cavity import Cavity
 from chain import Chain
 from data import Data
+import os
+
+"""
+Simple example of uses for the classes Transmon Cavity Chain. For a more complex one see "suppresed_our_model" and "suppresed_article_model"
+"""
 
 # Transmon parameters
 E_C = 1  # charging energy
@@ -37,16 +41,15 @@ g_d = 1
 
 # General parameters
 steps = 200
-n_g = 0
 flux_array = np.linspace(-flux_0, flux_0, steps)
 n_total = (2 * n_0 + 1) * (max_num_photons + 1) * (2 ** N)
 n_g_array = np.linspace(-2, 2, steps)
 
 # Instantiate classes
-# transmon1 = Transmon(E_C, n_0, E_J_max, d, flux_0, size_of_transmon_subspace)
-# cavity1 = Cavity(Wc, max_num_photons)
-# H_transmon = transmon1.compute_hamiltonian(n_g=1)
-# H_cavity = cavity1.compute_hamiltonian()
+transmon1 = Transmon(E_C, n_0, E_J_max, d, flux_0, size_of_transmon_subspace)
+cavity1 = Cavity(Wc, max_num_photons)
+H_transmon = transmon1.compute_hamiltonian(n_g=1)
+H_cavity = cavity1.compute_hamiltonian()
 chain1 = Chain(N=N, t=t, epsilon_r=epsilon_r)
 plot_data = Data(E_C=E_C, n_0=n_0, E_J_max=E_J_max, d=d, flux_0=flux_0, Wc=Wc, max_num_photons=max_num_photons, N=N,
                  t=t, epsilon_r=epsilon_r, g=g, gamma_L=gamma_L, gamma_R=gamma_R,
@@ -55,57 +58,43 @@ plot_data = Data(E_C=E_C, n_0=n_0, E_J_max=E_J_max, d=d, flux_0=flux_0, Wc=Wc, m
 eigenvalues_n_g, eigenvectors_n_g = plot_data.eigen_for_each_n_g()
 energy_diff_n_g = plot_data.energy_diff_n_g()
 
-np.save('eigenvalues_n_g.npy', eigenvalues_n_g)
-np.save('eigenvectors_n_g.npy', eigenvectors_n_g)
-np.save('energy_diff_n_g.npy', energy_diff_n_g)
 
-eigenvalues_n_g = np.load('eigenvalues_n_g.npy')
-eigenvectors_n_g = np.load('eigenvectors_n_g.npy')
-energy_diff_n_g = np.load('energy_diff_n_g.npy')
+def plot_y_vs_x(y_data, x_data, xlabel, ylabel, filename, amount):
+    """
+    Plots y_data vs x_data for a specified number of data series.
 
-
-def plot_energy_diff_vs_n_g(amount=eigenvalues_n_g.shape[1]):
+    Args:
+        y_data (ndarray): The y-axis data to plot (e.g., energies or energy differences).
+        x_data (ndarray): The x-axis data to plot against (e.g., n_g_array).
+        filename (str): The filename to save the plot.
+        amount (int): The number of series to plot.
+    """
     for i in range(amount):
-        plt.plot(n_g_array, abs(energy_diff_n_g[:, i]))
-    plt.xlabel(r'${n_g}$')
-    plt.ylabel('Energy differences')
-    # plt.axhline(y=5.5, color='r', linestyle='--')
-    # plt.title('Energy differences from GS (asymmetric transmon, cavity and chain)')
-
-    # Save the figure as an image (e.g., PNG)
-    filename = f'diff_n_g_only_cav_transmon_amount_of_energies_diff_{amount}_CPnum_{n_0}_PhotonsNum_{max_num_photons}.png'
+        plt.plot(x_data, y_data[:, i])
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
     plt.savefig(filename)
     plt.show()
 
 
-def plot_energy_vs_n_g(amount):
-    for i in range(amount):
-        plt.plot(n_g_array, eigenvalues_n_g[:, i] - eigenvalues_n_g[:, 0])
-    plt.xlabel(r'${n_g}$')
-    plt.ylabel('Energy')
-    # plt.axhline(y=5.5, color='r', linestyle='--')
-    # plt.title('Energy differences from GS (asymmetric transmon, cavity and chain)')
-
-    # Save the figure as an image (e.g., PNG)
-    filename = f'n_g_only_cav_transmon_amount_of_energies_{amount}_CPnum_{n_0}_PhotonsNum_{max_num_photons}.png'
-    plt.savefig(filename)
-    plt.show()
-
-
-plot_energy_diff_vs_n_g(4)
-plot_energy_vs_n_g(4)
-
-# interaction = Interaction(g, n_0, N, gamma_L, gamma_R, t, E_C, epsilon_r)
-# system = System(flux=0, n_g_array=n_g_array, cutoff_transmon=cutoff, size_of_subspace_T=size_of_transmon_subspace)
-#
-# # Perform computations
-# system.eigen_for_each_n_g()
-# system.energy_diff()
-#
-# # Plot results
-# system.plot_energy_diff_vs_n_g(3)
-# system.plot_energy_vs_n_g(3)
 
 if __name__ == '__main__':
-    plot_energy_diff_vs_n_g(2)
-    plot_energy_vs_n_g(2)
+    # Plot energy differences vs. n_g
+    plot_y_vs_x(
+        y_data=abs(energy_diff_n_g),
+        x_data=n_g_array,
+        xlabel=r'${n_g}$',
+        ylabel='Energy differences',
+        filename=os.path.join("data2", f'diff_n_g_only_cav_transmon_amount_of_energies_diff_4_CPnum_{n_0}_PhotonsNum_{max_num_photons}.png'),
+        amount=4
+    )
+
+    # Plot energies vs. n_g
+    plot_y_vs_x(
+        y_data=eigenvalues_n_g - eigenvalues_n_g[:, 0][:, np.newaxis],
+        x_data=n_g_array,
+        xlabel=r'${n_g}$',
+        ylabel='Energy',
+        filename=os.path.join("data2", f'n_g_only_cav_transmon_amount_of_energies_4_CPnum_{n_0}_PhotonsNum_{max_num_photons}.png'),
+        amount=4
+    )
