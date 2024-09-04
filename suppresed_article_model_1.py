@@ -1,15 +1,10 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from transmon import Transmon
-import os
-from matplotlib import colors
-from matplotlib.cm import get_cmap
-from matplotlib.collections import LineCollection
 import math
-from Suppresed_our_model import create_M_and_delta
-from Suppresed_our_model import create_upper_triangle_of_3d_array
-from Suppresed_our_model import plot_x_y_color
-from Suppresed_our_model import plot_data_vs_x
+from suppresed_our_model import create_M_and_delta
+from suppresed_our_model import create_upper_triangle_of_3d_array
+from suppresed_our_model import plot_x_y_color
 import parameters
 from scipy.optimize import brentq
 
@@ -40,24 +35,66 @@ num_of_lines = 4  # parameters.num_of_lines
 
 
 def has_non_zero_complex_part(matrix):
+    """
+    Check if a matrix has any non-zero complex part.
+
+    Args:
+        matrix (ndarray): Input matrix.
+
+    Returns:
+        bool: True if any element has a non-zero imaginary part, False otherwise.
+    """
     return np.any(np.imag(matrix) != 0)
 
 
 def bound_state_equation(x, phi, gamma1, gamma2, gap, xr):  # Eq. 1 in the paper
-    # x is E the energy, xr is epsilon_r
+    """
+    Bound state equation as defined in the paper.
+
+    Args:
+        x (float): Energy value.
+        phi (float): Phase value.
+        gamma1 (float): Coupling parameter gamma1.
+        gamma2 (float): Coupling parameter gamma2.
+        gap (float): Gap parameter.
+        xr (float): Epsilon_r parameter.
+
+    Returns:
+        float: Value of the bound state equation.
+    """
     gamma = gamma1 + gamma2
     omega = ((gap**2 - x**2) * (x**2 - xr**2 - gamma**2/4) + gap**2 * gamma1 * gamma2 * np.sin(phi/2)**2)
     return omega + gamma * x**2 * np.sqrt(gap**2 - x**2)
 
 
 def T_BW(gamma1, gamma2, xr):  # extract transmission based on \epsilon_r and Gammas
+    """
+    Extract transmission based on epsilon_r and Gammas.
+
+    Args:
+        gamma1 (float): Coupling parameter gamma1.
+        gamma2 (float): Coupling parameter gamma2.
+        xr (float): Epsilon_r parameter.
+
+    Returns:
+        float: Transmission value.
+    """
     T = gamma1*gamma2/(xr**2+1/4*(gamma1+gamma2)**2)
     return T
 
 
 def Delta_tilde(gamma1, gamma2, gap, xr):
     """
-    Solves Eq. 1 at zero phase to find E(0) = \tilde(\Delta) for given Gammas, gap and epsilon_r
+    Solves Eq. 1 at zero phase to find E(0) = Delta_tilde for given Gammas, gap, and epsilon_r.
+
+    Args:
+        gamma1 (float): Coupling parameter gamma1.
+        gamma2 (float): Coupling parameter gamma2.
+        gap (float): Gap parameter.
+        xr (float): Epsilon_r parameter.
+
+    Returns:
+        float: Delta_tilde value.
     """
 
     # Define the function to find the root of, rescaling parameters by the gap
@@ -74,6 +111,21 @@ def Delta_tilde(gamma1, gamma2, gap, xr):
 # noinspection PyTypeChecker
 def hamiltonian_and_n_operator(E_C=E_C, n_0_int=n_0_int, n_g=0, gamma1=Gamma,
                                gamma2=Gamma, gap=gap, xr=xr):
+    """
+    Creates the Hamiltonian and the n operator for the system.
+
+    Args:
+        E_C (float): Charging energy.
+        n_0_int (int): Integer value of n_0.
+        n_g (float): Value of n_g.
+        gamma1 (float): Coupling parameter gamma1.
+        gamma2 (float): Coupling parameter gamma2.
+        gap (float): Gap parameter.
+        xr (float): Epsilon_r parameter.
+
+    Returns:
+        tuple: Hamiltonian matrix and n operator matrix.
+    """
     delta_tilda = Delta_tilde(gamma1, gamma2, gap, xr)
     r = np.sqrt(1 - T_BW(gamma1, gamma2, xr))
     transmon_0 = Transmon(E_C, n_0_int, 0)
@@ -99,9 +151,6 @@ def compute_eigenvalues_and_operators(n_g=None):
 
     Parameters:
     n_g (float or np.ndarray): The n_g parameter, can be a scalar or an array.
-    N_g (float or np.ndarray): The N_g parameter, can be a scalar or an array.
-    even (bool): Whether to consider even states.
-    odd (bool): Whether to consider odd states.
 
     Returns:
     tuple: Eigenvalues, eigenvectors, and n operator.
@@ -144,6 +193,16 @@ def compute_eigenvalues_and_operators(n_g=None):
 
 
 def dispersion_per_interval(delta_E, intervals):
+    """
+    Calculate the dispersion for each interval of delta_E.
+
+    Args:
+        delta_E (ndarray): Energy differences.
+        intervals (int): Number of intervals to divide delta_E into.
+
+    Returns:
+        ndarray: Dispersion values for each interval.
+    """
     num_of_point = math.floor(delta_E.shape[0] / intervals)
     dispersion = np.zeros(intervals)
     for i in range(intervals):
@@ -153,6 +212,16 @@ def dispersion_per_interval(delta_E, intervals):
 
 
 def average_per_interval(a, intervals):
+    """
+    Calculate the average for each interval of array a.
+
+    Args:
+        a (ndarray): Input array.
+        intervals (int): Number of intervals to divide the array into.
+
+    Returns:
+        ndarray: Average values for each interval.
+    """
     num_of_point = math.floor(a.shape[0] / intervals)
     average = np.zeros(intervals)
     for i in range(intervals):
