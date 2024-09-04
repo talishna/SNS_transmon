@@ -4,9 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93cac9b9-3a3c-4b9f-903d-fda210805c89" name="Changes" comment="">
+    <list default="true" id="93cac9b9-3a3c-4b9f-903d-fda210805c89" name="Changes" comment="Added docstring to cavity">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Suppresed_their_model_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Suppresed_their_model_1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Suppresed_our_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/suppresed_our_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data2/diff_n_g_only_cav_transmon_amount_of_energies_diff_2_CPnum_10_PhotonsNum_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data2/n_g_only_cav_transmon_amount_of_energies_2_CPnum_10_PhotonsNum_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/delta_energy_vs_something_plots.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/diff_n_g_only_cav_transmon_amount_of_energies_diff_2_CPnum_10_PhotonsNum_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/diff_n_g_only_cav_transmon_amount_of_energies_diff_4_CPnum_10_PhotonsNum_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dipole_matrix_elements_plots.py" beforeDir="false" afterPath="$PROJECT_DIR$/dipole_matrix_elements_plots.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eigenvalues_n_g.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/energy_vs_something_plots.py" beforeDir="false" afterPath="$PROJECT_DIR$/energy_lines_plots.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/for_work_QM.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/n_g_only_cav_transmon_amount_of_energies_2_CPnum_10_PhotonsNum_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/n_g_only_cav_transmon_amount_of_energies_4_CPnum_10_PhotonsNum_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/parameters.py" beforeDir="false" afterPath="$PROJECT_DIR$/parameters.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot_functions.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test1.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_dot_energies.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/total_h.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/{title}.svg" beforeDir="false" />
     </list>
     <list id="f3c09fef-f186-4117-a3ca-a8f14fa77237" name="Revert heavy files" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -91,52 +109,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Python.main">
-    <configuration name="Suppresed_our_model" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="SNS_transmon" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Suppresed_our_model.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Suppresed_their_model_1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="SNS_transmon" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Suppresed_their_model_1.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="dipole_matrix_elements_plots" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SNS_transmon" />
       <option name="ENV_FILES" value="" />
@@ -165,9 +137,6 @@
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -183,16 +152,62 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="suppresed_article_model_1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="SNS_transmon" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\User\PycharmProjects\SNS_transmon\suppresed_article_model_1.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="suppresed_our_model" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="SNS_transmon" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\User\PycharmProjects\SNS_transmon\suppresed_our_model.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.main" />
       <item itemvalue="Python.dipole_matrix_elements_plots" />
-      <item itemvalue="Python.Suppresed_our_model" />
-      <item itemvalue="Python.Suppresed_their_model_1" />
+      <item itemvalue="Python.suppresed_our_model" />
+      <item itemvalue="Python.suppresed_article_model_1" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Suppresed_our_model" />
-        <item itemvalue="Python.Suppresed_their_model_1" />
+        <item itemvalue="Python.suppresed_our_model" />
+        <item itemvalue="Python.suppresed_article_model_1" />
         <item itemvalue="Python.dipole_matrix_elements_plots" />
       </list>
     </recent_temporary>
@@ -259,7 +274,7 @@
       <workItem from="1723547029058" duration="9769000" />
       <workItem from="1724669774650" duration="4656000" />
       <workItem from="1724747176942" duration="5039000" />
-      <workItem from="1725356582652" duration="5162000" />
+      <workItem from="1725356582652" duration="19542000" />
     </task>
     <task id="LOCAL-00001" summary="This is a working code of only the cavity and transmon alone! i tested the e vs n_g plots">
       <option name="closed" value="true" />
@@ -293,7 +308,95 @@
       <option name="project" value="LOCAL" />
       <updated>1725367272072</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="change in variables a and b">
+      <option name="closed" value="true" />
+      <created>1725368074025</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1725368074025</updated>
+    </task>
+    <task id="LOCAL-00006" summary="change in variable a">
+      <option name="closed" value="true" />
+      <created>1725368270235</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1725368270236</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Added docstring to cavity">
+      <option name="closed" value="true" />
+      <created>1725454851871</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1725454851871</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Added docstring to chain">
+      <option name="closed" value="true" />
+      <created>1725454877386</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1725454877386</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Added docstring to data">
+      <option name="closed" value="true" />
+      <created>1725454906004</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1725454906004</updated>
+    </task>
+    <task id="LOCAL-00010" summary="delta energy plots">
+      <option name="closed" value="true" />
+      <created>1725454976993</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1725454976993</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Added docstring to main">
+      <option name="closed" value="true" />
+      <created>1725455031240</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1725455031240</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Added docstring to suppressed article model">
+      <option name="closed" value="true" />
+      <created>1725455077283</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1725455077283</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Added docstring to cavity">
+      <option name="closed" value="true" />
+      <created>1725455094565</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1725455094565</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Added docstring to total hamiltonian">
+      <option name="closed" value="true" />
+      <created>1725455123898</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1725455123898</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Added docstring to transmon">
+      <option name="closed" value="true" />
+      <created>1725455158985</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1725455158985</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -346,18 +449,19 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="This is a working code of only the cavity and transmon alone! i tested the e vs n_g plots" />
     <MESSAGE value="Inital project upload" />
-    <option name="LAST_COMMIT_MESSAGE" value="Inital project upload" />
+    <MESSAGE value="change in variables a and b" />
+    <MESSAGE value="change in variable a" />
+    <MESSAGE value="Added docstring to chain" />
+    <MESSAGE value="Added docstring to data" />
+    <MESSAGE value="delta energy plots" />
+    <MESSAGE value="Added docstring to main" />
+    <MESSAGE value="Added docstring to suppressed article model" />
+    <MESSAGE value="Added docstring to total hamiltonian" />
+    <MESSAGE value="Added docstring to cavity" />
+    <MESSAGE value="Added docstring to transmon" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added docstring to transmon" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/for_work_QM.py</url>
-          <line>281</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
         <watch expression="1j * (n_values[m]-n_values[n]) / (np.pi * ((n_values[m]-n_values[n]) ** 2 - 1/4))" language="Python" />

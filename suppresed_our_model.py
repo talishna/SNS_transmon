@@ -7,6 +7,9 @@ from matplotlib.cm import get_cmap
 from matplotlib.collections import LineCollection
 import math
 import parameters
+"""
+Below code contains the model for the transmon + dot system developed by Tali Shnaider and Eytan Grosfeld.
+"""
 
 # Parameters
 E_C = parameters.E_C
@@ -41,6 +44,20 @@ N_g_range = parameters.N_g_range
 
 # noinspection PyTypeChecker
 def h_tot_n_tot_N_g_n_g(n_g=0, N_g=0, even=False, odd=False):  # the hamiltonian of the coulomb interaction model
+    """
+    Compute the total Hamiltonian and number operator matrices for a given set of parameters.
+
+    Parameters:
+        n_g (float, optional): The gate charge offset. Default is 0.
+        N_g (float, optional): The flux offset. Default is 0.
+        even (bool, optional): Whether to include even parity subspace. Default is False.
+        odd (bool, optional): Whether to include odd parity subspace. Default is False.
+
+    Returns:
+        tuple: A tuple containing:
+            - H_tot (np.ndarray): The total Hamiltonian matrix.
+            - n_total (np.ndarray): The number operator matrix.
+    """
     transmon0 = Transmon(E_C, n_0_int, E_J_max, d, flux_0)
     H_transmon01 = transmon0.compute_hamiltonian(n_g=n_g)
     n_hat_int = transmon0.n_hat
@@ -90,6 +107,16 @@ def h_tot_n_tot_N_g_n_g(n_g=0, N_g=0, even=False, odd=False):  # the hamiltonian
 
 
 def dispersion(array, which_eigen):
+    """
+    Calculate the dispersion of eigenvalues for a given eigenstate.
+
+    Parameters:
+        array (np.ndarray): Array of eigenvalues.
+        which_eigen (int): Index of the eigenstate to compute dispersion for.
+
+    Returns:
+        float: The dispersion value for the specified eigenstate.
+    """
     max = np.max(array[:, which_eigen])
     min = np.min(array[:, which_eigen])
     dispersion = (max - min)
@@ -211,7 +238,7 @@ def transform_operator(operator, eigenvectors):
     Transform the given operator using the provided eigenvectors.
 
     Parameters:
-    n_operator (np.ndarray): The operator to be transformed. Can be 2D or 3D.
+    operator (np.ndarray): The operator to be transformed. Can be 2D or 3D.
     eigenvectors (np.ndarray): The eigenvectors used for the transformation. Should match the dimensionality of n_operator.
 
     Returns:
@@ -268,8 +295,16 @@ def create_M_and_delta(operator: np.ndarray, eigenvalues: np.ndarray, eigenvecto
 
 
 def create_upper_triangle_of_3d_array(array):
-    # M and delta energy are (200,7,7) mat where each layer is <i|a_up+a_down|j> i want to get only the upper triangle
-    # of each layer (k=1) and make it 1D and put in a matrix of (200,21)
+    """
+    Extract the upper triangle of each 2D slice in a 3D array and reshape it into a 2D matrix.
+
+    Parameters:
+        array (np.ndarray): A 3D array where each 2D slice represents a matrix. The shape should be (steps, amount_of_energies, amount_of_energies).
+
+    Returns:
+        np.ndarray: A 2D array where each row contains the upper triangular part of the corresponding 2D slice from the input array.
+                    The shape of the output array is (steps, new_dim), where new_dim is the number of elements in the upper triangle of each 2D slice.
+    """
     new_dim = np.sum(list(range(array.shape[1])))  # array.shape[1] = amount_of_energies
     new_array = np.zeros((array.shape[0], new_dim))
     upper_triangle_indices = np.triu_indices(array.shape[1], k=1)  # gets the indices of the upper triangle
@@ -283,13 +318,16 @@ def plot_x_y_color(color_values, x, y, xlabel, ylabel, title, wo_small_values=Tr
     Plots x and y values with a color gradient based on color_values.
 
     Parameters:
-    - color_values: Array of values used to color the line segments.
-    - x: Array of x values.
-    - y: Array of y values.
-    - xlabel: Label for the x-axis.
-    - ylabel: Label for the y-axis.
-    - title: Title of the plot.
-    - wo_small_values: If True, sets color values below 1e-14 to zero.
+        color_values (np.ndarray): Array of values used to color the line segments. Should match the second dimension of y.
+        x (np.ndarray): Array of x values.
+        y (np.ndarray): 2D array of y values. Each column represents a different line segment.
+        xlabel (str): Label for the x-axis.
+        ylabel (str): Label for the y-axis.
+        title (str): Title of the plot.
+        wo_small_values (bool): If True, sets color values below 1e-14 to zero.
+
+    Returns:
+        None: Displays the plot.
     """
 
     if wo_small_values:
@@ -441,6 +479,20 @@ def analytical_eigen_and_dipole_operator1(array, total_dim=num_of_lines, change_
 
 
 def create_M_and_delta_analytical(operator, eigenvalues, eigenvectors):
+    """
+    Calculate the transition probability matrix and energy difference matrix for a given operator, eigenvalues, and
+    eigenvectors for the analytical model.
+
+    Parameters:
+        operator (np.ndarray): The operator matrix with shape (steps, dim, dim), where `steps` is the number of time steps or different configurations, and `dim` is the dimension of the Hilbert space.
+        eigenvalues (np.ndarray): A 2D array with shape (steps, amount_of_energies), where `steps` is the number of time steps or different configurations, and `amount_of_energies` is the number of eigenstates considered.
+        eigenvectors (np.ndarray): A 3D array with shape (steps, dim, amount_of_energies) representing the eigenvectors of the system at each step.
+
+    Returns:
+        tuple: A tuple containing:
+            - M (np.ndarray): A 3D array with shape (steps, amount_of_energies, amount_of_energies), where each element M[step, i, j] represents the transition probability <i|operator|j> at a specific step.
+            - delta_energy (np.ndarray): A 3D array with shape (steps, amount_of_energies, amount_of_energies), where each element delta_energy[step, i, j] represents the energy difference (E_i - E_j) at a specific step.
+    """
     amount_of_energies = eigenvalues.shape[1]
     # operator should be of appropriate size to eigenvectors
     delta_energy = np.zeros((eigenvalues.shape[0], amount_of_energies, amount_of_energies),
@@ -571,9 +623,6 @@ unravel_M_analytical_n_g_0 = create_upper_triangle_of_3d_array(M_analytical_n_g_
 unravel_delta_energy_analytical_n_g_0 = create_upper_triangle_of_3d_array(delta_energy_analytical_n_g_0)
 
 if __name__ == "__main__":
-
-
-
     # in this code i want to create a graph of energy transitions as a result of the n operator
     # in the even subspace of the transmon +dot + coulomb int for N_g=-0.5
     # I want the line to be colored by the transition amplitude

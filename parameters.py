@@ -1,4 +1,9 @@
 import numpy as np
+"""
+This file contains the parameters for the model Tali Shnaider and Eytan grosfeld developed for the SNS transmon with dot 
+system.
+"""
+
 
 # Parameters
 E_C = 1  # charging energy
