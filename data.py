@@ -1,12 +1,53 @@
 import numpy as np
-import matplotlib.pyplot as plt
-import time
-from total_h import TotalHamiltonian
+from total_hamiltonian import TotalHamiltonian
 
 
 class Data:
+    """
+    Represents a data handler for a quantum system with transmons, cavities, and spin chains.
+
+    Attributes:
+        flux_array (ndarray): Array of flux values.
+        n_g_array (ndarray): Array of gate charge values.
+        cutoff_transmon (bool): Indicates whether to apply a cutoff for the transmon.
+        size_subspace_transmon (int): Size of the computational subspace for the transmon.
+        total_dim (int): Total dimension of the combined Hilbert space.
+        H_total (TotalHamiltonian): Instance of the TotalHamiltonian class representing the total Hamiltonian of the
+        system.
+        eigenvalues_n_g (ndarray): Array to store eigenvalues for each gate charge value.
+
+    Methods:
+        eigen_for_each_n_g(): Computes eigenvalues and eigenvectors for each gate charge value in n_g_array.
+        energy_diff_n_g(): Computes the energy differences between eigenstates for each gate charge value.
+        plot_energy_diff_vs_n_g(amount): Plots the energy differences as a function of gate charge for a specified
+        number of energy levels.
+        plot_energy_vs_n_g(amount): Plots the energy levels as a function of gate charge for a specified number of
+        energy levels.
+    """
     def __init__(self, E_C, n_0, E_J_max, d, flux_0, Wc, max_num_photons, N, t, epsilon_r, g, gamma_L, gamma_R,
                  flux_array, n_g_array, cutoff_transmon=False, size_subspace_transmon=None):
+        """
+        Initializes the Data object.
+
+        Args:
+            E_C (float): Charging energy.
+            n_0 (int): Number of Cooper pairs.
+            E_J_max (float): Maximum Josephson energy.
+            d (float): Squid asymmetry parameter.
+            flux_0 (float): Flux quantum.
+            Wc (float): Cavity frequency.
+            max_num_photons (int): Maximum number of photons in the cavity.
+            N (int): Number of spins in the chain.
+            t (float): Hopping parameter in the chain.
+            epsilon_r (float): On-site energy in the chain.
+            g (float): Coupling strength between the transmon and the cavity.
+            gamma_L (float): Left coupling rate.
+            gamma_R (float): Right coupling rate.
+            flux_array (ndarray): Array of flux values.
+            n_g_array (ndarray): Array of gate charge values.
+            cutoff_transmon (bool, optional): Whether to apply a cutoff for the transmon. Default is False.
+            size_subspace_transmon (int, optional): Size of the computational subspace for the transmon. Default is None.
+        """
         self.flux_array = flux_array
         self.n_g_array = n_g_array
         self.cutoff_transmon = cutoff_transmon
@@ -19,6 +60,12 @@ class Data:
         self.eigenvalues_n_g = None
 
     def eigen_for_each_n_g(self):
+        """
+        Computes eigenvalues and eigenvectors for each gate charge value in n_g_array.
+
+        Returns:
+            tuple: A tuple containing the eigenvalues and eigenvectors for each gate charge value.
+        """
         eigenvalues_n_g = np.zeros((self.n_g_array.shape[0], self.total_dim))
         eigenvectors_n_g = np.zeros((self.n_g_array.shape[0], self.total_dim, self.total_dim), dtype=complex)
         for i in range(self.n_g_array.shape[0]):
@@ -31,6 +78,12 @@ class Data:
         return eigenvalues_n_g, eigenvectors_n_g
 
     def energy_diff_n_g(self):
+        """
+        Computes the energy differences between eigenstates for each gate charge value.
+
+        Returns:
+            ndarray: Array of energy differences for each gate charge value.
+        """
         amount_of_energies_n_g = self.total_dim
         amount_of_energy_diff = np.sum(list(range(amount_of_energies_n_g)))
         delta_energy_n_g_temp = np.zeros((self.n_g_array.shape[0], amount_of_energies_n_g, amount_of_energies_n_g))  # contains the energy differences, 0 axis in the size of n_g
