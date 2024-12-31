@@ -79,9 +79,65 @@ class TestTransmon(unittest.TestCase):
             ax = axes[idx]
             for i in range(number_of_energies):
                 ax.plot(n_g_array, energy_levels[:, i], label=f"Level {i}")
-            ax.set_title(f"$E_J = {E_J}$")
+            ax.set_title(f'$E_J/E_C={int(E_J/E_C)}$')
             ax.set_xlabel("$n_g$")
             ax.set_ylabel("Energy")
+            ax.legend()
+            ax.grid()
+
+        # Adjust layout and save the figure
+        plt.tight_layout()
+        plt.savefig(plot_filename)
+        plt.close()
+
+        # Assert the plot file is created
+        self.assertTrue(os.path.exists(plot_filename), f"Plot file {plot_filename} was not created.")
+
+    def test_plot_eigenfunctions_vs_phi_2x2(self):
+        """
+        Test plotting the first 5 eigenfunctions of the Hamiltonian as a function of phase phi
+        for 4 different E_J/E_C ratios when n_g = 0. Includes real and imaginary parts for all functions.
+        """
+        steps = 200
+        phi = np.linspace(-np.pi, np.pi, steps)
+        E_J_ratios = [1, 5, 10, 50]  # Ratios of E_J/E_C
+        number_of_eigenvectors = 5
+        timestamp = time.strftime("%Y%m%d-%H%M%S")
+        plot_filename = os.path.join("transmon_test_plots", f"eigenfunctions_vs_phi_2x2_{timestamp}.png")
+
+        # Create a 2x2 grid of subplots
+        fig, axes = plt.subplots(2, 2, figsize=(12, 10))
+        axes = axes.flatten()  # Flatten the 2D array for easier indexing
+
+        for idx, E_J_ratio in enumerate(E_J_ratios):
+            E_J = E_J_ratio / self.E_C  # Calculate E_J based on the ratio
+            transmon = Transmon(self.E_C, self.n_0, E_J)
+            hamiltonian = transmon.compute_hamiltonian(n_g=0)
+
+            # Compute eigenvalues and eigenvectors
+            _, eigenvectors = np.linalg.eigh(hamiltonian)
+
+            # Compute the eigenfunctions
+            func_mat = np.zeros((steps, number_of_eigenvectors), dtype=complex)  # Rows: phi values, Columns: eigenfunctions
+            for f in range(number_of_eigenvectors):  # Loop over the first 5 eigenfunctions
+                for i in range(steps):  # Loop over phi values
+                    func_mat[i, f] = sum(
+                        (1 / np.sqrt(2 * np.pi)) *
+                        eigenvectors[n, f] *
+                        np.exp(1j * (n - transmon.n_0) * phi[i])  # The n-n_0 is so that the exponent will go from
+                        # -n_0 to n_0
+                        for n in range(transmon.dimension)
+                    )
+
+            # Plot the eigenfunctions
+            ax = axes[idx]
+            for f in range(number_of_eigenvectors):  # Plot only the first 5 eigenfunctions
+                ax.plot(phi, np.real(func_mat[:, f]), linestyle='-', label=f"Re(Function {f})")
+                ax.plot(phi, np.imag(func_mat[:, f]), linestyle='--', label=f"Im(Function {f})")
+
+            ax.set_title(f"$E_J/E_C = {E_J_ratio}$")
+            ax.set_xlabel("$\\phi$")
+            ax.set_ylabel("Amplitude")
             ax.legend()
             ax.grid()
 
