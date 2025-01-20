@@ -271,7 +271,7 @@ def create_M_and_delta(operator: np.ndarray, eigenvalues: np.ndarray, eigenvecto
         amount (int): Number of eigenvalues and eigenvectors to consider.
 
     Returns:
-        tuple: M (np.ndarray) - Transition probability matrix.
+        tuple: M (np.ndarray) - Matrix element for the interaction.
                delta_energy (np.ndarray) - Energy difference matrix.
     """
     num_steps = eigenvalues.shape[0]
@@ -582,7 +582,7 @@ eigenvalues_n_g_N_g_half_even, eigenvectors_n_g_N_g_half_even, n_operator_n_g_N_
 M_numerical_n_g_N_g_half, delta_energy_numerical_n_g_N_g_half = (
     create_M_and_delta(operator=n_operator_n_g_N_g_half_even, eigenvalues=eigenvalues_n_g_N_g_half_even,
                        eigenvectors=eigenvectors_n_g_N_g_half_even, amount=num_of_lines))
-M_numerical_n_g_N_g_half = np.abs(M_numerical_n_g_N_g_half)
+M_numerical_n_g_N_g_half = np.abs(M_numerical_n_g_N_g_half) ** 2
 delta_energy_numerical_n_g_N_g_half = np.abs(delta_energy_numerical_n_g_N_g_half)
 unravel_M_numerical_n_g_N_g_half = create_upper_triangle_of_3d_array(M_numerical_n_g_N_g_half)
 unravel_delta_energy_numerical_n_g_N_g_half = create_upper_triangle_of_3d_array(delta_energy_numerical_n_g_N_g_half)
@@ -593,7 +593,7 @@ eigenvalues_N_g_n_g_0_even, eigenvectors_N_g_n_g_0_even, n_operator_N_g_n_g_0_ev
 M_numerical_N_g_n_g_0, delta_energy_numerical_N_g_n_g_0 = (
     create_M_and_delta(operator=n_operator_N_g_n_g_0_even, eigenvalues=eigenvalues_N_g_n_g_0_even,
                        eigenvectors=eigenvectors_N_g_n_g_0_even, amount=num_of_lines))
-M_numerical_N_g_n_g_0 = np.abs(M_numerical_N_g_n_g_0)
+M_numerical_N_g_n_g_0 = np.abs(M_numerical_N_g_n_g_0) ** 2
 delta_energy_numerical_N_g_n_g_0 = np.abs(delta_energy_numerical_N_g_n_g_0)
 unravel_M_numerical_N_g_n_g_0 = create_upper_triangle_of_3d_array(M_numerical_N_g_n_g_0)
 unravel_delta_energy_numerical_N_g_n_g_0 = create_upper_triangle_of_3d_array(delta_energy_numerical_N_g_n_g_0)
