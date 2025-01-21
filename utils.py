@@ -154,7 +154,7 @@ def plot_x_y_color(color_values, x, y, xlabel, ylabel, title, path = None, wo_sm
 
 def colored_line(x, y, c, ax, **lc_kwargs):
     """
-    Plot a line with a color specified along the line by a third value.
+    Plot a line with a color specified along the line by a third value..
 
     It does this by creating a collection of line segments. Each line segment is
     made up of two straight lines each connecting the current (x, y) point to the
