@@ -3,9 +3,12 @@ import time
 import os
 import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib.colors import Normalize
 from sympy.physics.quantum.sho1d import Hamiltonian
+
+import transmon
 from transmon import Transmon
-from utils import is_hermitian, matrix_element_Mfi, delta_energies, upper_triangle, plot_x_y_color
+from utils import is_hermitian, matrix_element_Mfi, delta_energies, upper_triangle, plot_x_y_color, colored_line
 
 E_J = np.array([1,5,10,50])
 E_C = 1
@@ -18,7 +21,7 @@ class TestTransmon(unittest.TestCase):
         self.E_J_max = 1
         self.n_0 = 5
         self.E_J_values = np.array([1, 5, 10, 50])  # Different E_J values
-        self.number_of_energies = 5
+        self.number_of_energies = 3
         self.steps = 200
         self.n_g_array = np.linspace(-2, 2, self.steps)
         self.phi = np.linspace(-np.pi, np.pi, self.steps)
@@ -151,12 +154,48 @@ class TestTransmon(unittest.TestCase):
 
 
     def test_plot_delta_energy_vs_ng_dipole_transitions(self):
+        length = np.sum(range(self.number_of_energies))
+        big_M = np.zeros((self.n_g_array.shape[0], length))
+        big_delta = np.zeros_like(big_M)
         n_operator = self.transmon.n_hat
-        eigenvalues, eigenvectors = np.linalg.eigh(self.hamiltonian)
-        M = matrix_element_Mfi(n_operator, eigenvectors, self.number_of_energies)
-        delta = delta_energies(eigenvalues, self.number_of_energies)
-        M = upper_triangle(M)
-        delta = upper_triangle(delta)
+
+        for i, n_g in enumerate(self.n_g_array):
+            H = self.transmon.compute_hamiltonian(n_g=n_g)
+            eigenvalues, eigenvectors = np.linalg.eigh(H)
+            M = matrix_element_Mfi(n_operator, eigenvectors, self.number_of_energies)
+            delta = delta_energies(eigenvalues, self.number_of_energies)
+            big_M[i, :] = upper_triangle(M)
+            big_delta[i, :] = upper_triangle(delta)
+
+        big_delta = abs(big_delta)
+        big_M = abs(big_M)**2
+
+        # Combine color ranges for normalization
+        vmin = big_M.min()
+        vmax = big_M.max()
+        norm = Normalize(vmin=vmin, vmax=vmax)
+
+        # Create the plot
+        fig, ax = plt.subplots()
+
+        for i in range(length):
+            line = colored_line(self.n_g_array, big_delta[:, i], big_M[:, i], ax, linewidth=2, cmap="plasma", norm=norm)
+            if i==(length-1):
+                # Add a single colorbar
+                fig.colorbar(line, ax=ax)
+
+        ax.set_title("Transmon Transitions due to Dipole")
+        ax.set_xlabel("n_g")
+        ax.set_ylabel("Delta Energy")
+        ax.set_xlim(self.n_g_array.min(), self.n_g_array.max())
+        ax.set_ylim(big_delta.min(), big_delta.max())
+        plt.tight_layout()
+
+        timestamp = time.strftime("%Y%m%d-%H%M%S")
+        plot_filename = os.path.join("transmon_test_plots", f"Transmon Transitions due to Dipole {timestamp}.png")
+        plt.savefig(plot_filename, format='svg')
+
+        # plot_x_y_color(big_M, self.n_g_array, big_delta, "n_g", "Delta Energy", 'Transmon Transitions due to Dipole', path=path)
 
 
 
