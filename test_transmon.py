@@ -12,7 +12,7 @@ from utils import is_hermitian, matrix_element_Mfi, delta_energies, upper_triang
 
 E_J = np.array([1,5,10,50])
 E_C = 1
-N = 5
+# N = 5
 number_of_energies = 5
 
 class TestTransmon(unittest.TestCase):
@@ -159,6 +159,7 @@ class TestTransmon(unittest.TestCase):
         big_delta = np.zeros_like(big_M)
         n_operator = self.transmon.n_hat
 
+        # compute M and delta for each n_g
         for i, n_g in enumerate(self.n_g_array):
             H = self.transmon.compute_hamiltonian(n_g=n_g)
             eigenvalues, eigenvectors = np.linalg.eigh(H)
@@ -167,7 +168,7 @@ class TestTransmon(unittest.TestCase):
             big_M[i, :] = upper_triangle(M)
             big_delta[i, :] = upper_triangle(delta)
 
-        big_delta = abs(big_delta)
+        big_delta = -1*big_delta  # minus so the energies will be positive
         big_M = abs(big_M)**2
 
         # Combine color ranges for normalization
@@ -178,10 +179,20 @@ class TestTransmon(unittest.TestCase):
         # Create the plot
         fig, ax = plt.subplots()
 
+        # create the description for the graph from the upper triangle indices
+        upper_tri = np.triu_indices(self.number_of_energies, k=1)
+        indices = [(y, x) for x, y in zip(*upper_tri)]
+        descriptions = [f'E{x}-E{y}' for x, y in indices]
+
         for i in range(length):
             line = colored_line(self.n_g_array, big_delta[:, i], big_M[:, i], ax, linewidth=2, cmap="plasma", norm=norm)
-            if i==(length-1):
-                # Add a single colorbar
+
+            # annotate the line with its description
+            mid_idx = len(self.n_g_array)//2
+            ax.text(self.n_g_array[mid_idx], big_delta[mid_idx, i], descriptions[i], fontsize=8, color="black", ha="left")
+
+            # Add a single colorbar
+            if i == (length-1):
                 fig.colorbar(line, ax=ax)
 
         ax.set_title("Transmon Transitions due to Dipole")
@@ -194,6 +205,7 @@ class TestTransmon(unittest.TestCase):
         timestamp = time.strftime("%Y%m%d-%H%M%S")
         plot_filename = os.path.join("transmon_test_plots", f"Transmon Transitions due to Dipole {timestamp}.png")
         plt.savefig(plot_filename, format='svg')
+        plt.show()
 
         # plot_x_y_color(big_M, self.n_g_array, big_delta, "n_g", "Delta Energy", 'Transmon Transitions due to Dipole', path=path)
 
