@@ -51,16 +51,16 @@ class Chain:
         H = np.zeros((2 ** self.N, 2 ** self.N))
         if self.N < 2:
             return H
-        for i in range(self.N - 2):
-            term = np.kron(np.eye(2 ** ((i + 1) - 1)),
+        for i in range(1, self.N - 1):
+            term = np.kron(np.eye(2 ** (i - 1)),
                            np.kron(self.s_plus,
                                    np.kron(-self.s_z,
-                                           np.kron(self.s_minus, np.eye(2 ** (self.N - ((i + 1) + 2)))))))
-            # I am adding +1 in all the dimensions because the range starts from 0 and the spin index start from 1
-            H += -self.t * (term + term.conj().T)
-        for i in range(self.N):
-            on_site_energy = self.epsilon_r * np.kron(np.eye(2 ** ((i + 1) - 1)),
+                                           np.kron(self.s_minus, np.eye(2 ** (self.N - (i + 2)))))))
+
+            H += -2 * self.t * (term + term.conj().T)
+        for i in range(1, self.N + 1):
+            on_site_energy = np.kron(np.eye(2 ** (i - 1)),
                                                       np.kron(self.s_z + 0.5 * np.eye(2),
-                                                              np.eye(2 ** (self.N - (i + 1)))))
-            H += on_site_energy
+                                                              np.eye(2 ** (self.N - i))))
+            H += self.epsilon_r * on_site_energy
         return H
