@@ -1,5 +1,4 @@
 import numpy as np
-import scipy as sp
 from scipy import sparse
 from scipy.sparse.linalg import eigsh
 from scipy.sparse.linalg import eigs
@@ -54,22 +53,22 @@ class SpinChain:
         Returns:
             scipy.sparse.csr_matrix: The sparse Hamiltonian matrix.
         """
-        H = sp.csr_matrix((self.dimension, self.dimension), dtype=np.float32)  # Initialize sparse matrix
-        s_z_mod = self.s_z + 0.5 * sp.eye(2, format="csr")
+        H = csr_matrix((self.dimension, self.dimension), dtype=np.float32)  # Initialize sparse matrix
+        s_z_mod = self.s_z + 0.5 * sparse.eye(2, format="csr")
 
         for i in range(1, self.N_spins + 1):
-            I_left =sp.eye(2 ** (i-1), format="csr")
-            I_right =sp.eye(2 ** (self.N_spins - i), format="csr")
-            on_site_energy = sp.kron(I_left, sp.kron(s_z_mod, I_right))
+            I_left = sparse.eye(2 ** (i-1), format="csr")
+            I_right = sparse.eye(2 ** (self.N_spins - i), format="csr")
+            on_site_energy = sparse.kron(I_left, sparse.kron(s_z_mod, I_right))
             H += self.epsilon_r * on_site_energy
 
             # Hopping term only if there's room for two more sites and N<4
             if self.N_spins >= 4 and (i < self.N_spins - 1):
-                I_right2 = sp.eye(2 ** (self.N_spins - (i + 2)), format="csr")
-                term = sp.kron(I_left,
-                               sp.kron(self.s_plus,
-                                       sp.kron(-self.s_z,
-                                               sp.kron(self.s_minus, I_right2, format="csr"))), format="csr")
+                I_right2 = sparse.eye(2 ** (self.N_spins - (i + 2)), format="csr")
+                term = sparse.kron(I_left,
+                                   sparse.kron(self.s_plus,
+                                               sparse.kron(-self.s_z,
+                                                           sparse.kron(self.s_minus, I_right2, format="csr"))), format="csr")
                 H += -2 * self.t * (term + term.getH())
 
         # for i in range(1, self.N_spins + 1):
@@ -93,6 +92,6 @@ class SpinChain:
         site_index should be between [0,self.N_spins] so it should take the spin into account.
         Returns: scipy.sparse.csr_matrix: Resulting sparse matrix after applying the operator.
         """
-        I_left = sp.eye(2 ** (site_index - 1), format="csr")
-        I_right = sp.eye(2 ** (self.N_spins - site_index), format="csr")
-        return sp.kron(I_left, sp.kron(operator, I_right), format="csr")
+        I_left = sparse.eye(2 ** (site_index - 1), format="csr")
+        I_right = sparse.eye(2 ** (self.N_spins - site_index), format="csr")
+        return sparse.kron(I_left, sparse.kron(operator, I_right), format="csr")

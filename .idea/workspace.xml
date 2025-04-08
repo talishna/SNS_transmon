@@ -4,11 +4,66 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93cac9b9-3a3c-4b9f-903d-fda210805c89" name="Changes" comment="Added docstring to cavity">
-      <change afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_transmon.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_utils.py" afterDir="false" />
+    <list default="true" id="93cac9b9-3a3c-4b9f-903d-fda210805c89" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/SNS - double transmon + chain.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chain_test_plots/eigenfunctions_vs_k_20250123-145720.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chain_test_plots/eigenfunctions_vs_k_20250123-145826.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chain_test_plots/eigenfunctions_vs_k_20250123-145856.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chain_test_plots/eigenfunctions_vs_k_20250126-135747.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eigenvalues_SNS_double_transmon_chain.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eigenvectors_SNS_double_transmon_chain.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/probability plots.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_chain.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transmon_alone_data/eigenvalues_analytical_transmon_only.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transmon_dot_graphs/analytical  deltaE vs big N_g n_g=0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transmon_dot_graphs/analytical deltaE vs big N_g n_g varing.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transmon_dot_graphs/analytical deltaE vs big N_g n_g=0 upper transitions.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transmon_dot_graphs/analytical deltaE vs big N_g n_g=0.25 upper transitions.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transmon_dot_graphs/analytical deltaE vs n_g N_g=-0.5 lower transitions.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transmon_dot_graphs/analytical deltaE vs n_g N_g=-0.5 upper transitions.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transmon_dot_graphs/analytical deltaE vs n_g N_g=-0.5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transmon_dot_graphs/numerical and analytical energy vs big N_g first transmon level.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transmon_dot_graphs/numerical and analytical energy vs big N_g n_g=0.25.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transmon_dot_graphs/numerical and analytical energy vs big N_g n_g=0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transmon_dot_graphs/numerical and analytical energy vs big N_g second transmon level.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transmon_dot_graphs/numerical and analytical energy vs big N_g varing n_g.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transmon_dot_graphs/numerical and analytical energy vs big N_g.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transmon_dot_graphs/numerical and analytical energy vs n_g N_g=-0.5 first transmon level.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transmon_dot_graphs/numerical and analytical energy vs n_g N_g=-0.5 second transmon level.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transmon_dot_graphs/numerical and analytical energy vs n_g.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transmon_dot_graphs/numerical deltaE vs big N_g n_g varing.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transmon_dot_graphs/numerical deltaE vs big N_g n_g=0 upper transitions.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transmon_dot_graphs/numerical deltaE vs big N_g n_g=0.25 upper transitions.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transmon_dot_graphs/numerical deltaE vs big N_g n_g=0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transmon_dot_graphs/numerical deltaE vs n_g N_g=-0.5 lower transitions.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transmon_dot_graphs/numerical deltaE vs n_g N_g=-0.5 upper transitions.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transmon_dot_graphs/numerical deltaE vs n_g N_g=-0.5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transmon_test_plots/Transmon Transitions due to Dipole 20250121-134248.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transmon_test_plots/Transmon Transitions due to Dipole 20250121-134322.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transmon_test_plots/Transmon Transitions due to Dipole 20250206-204248.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transmon_test_plots/Transmon Transitions due to Dipole 20250316-131444.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transmon_test_plots/eigenfunctions_vs_phi_2x2_20250121-134249.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transmon_test_plots/eigenfunctions_vs_phi_2x2_20250121-134323.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transmon_test_plots/eigenfunctions_vs_phi_2x2_20250206-204249.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transmon_test_plots/eigenfunctions_vs_phi_2x2_20250316-131445.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transmon_test_plots/energy_levels_vs_ng_2x2_20250121-134251.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transmon_test_plots/energy_levels_vs_ng_2x2_20250121-134324.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transmon_test_plots/energy_levels_vs_ng_2x2_20250206-204251.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/transmon_test_plots/energy_levels_vs_ng_2x2_20250316-131446.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data.py" beforeDir="false" afterPath="$PROJECT_DIR$/data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data2/diff_n_g_only_cav_transmon_amount_of_energies_diff_4_CPnum_10_PhotonsNum_6.png" beforeDir="false" afterPath="$PROJECT_DIR$/data2/diff_n_g_only_cav_transmon_amount_of_energies_diff_4_CPnum_10_PhotonsNum_6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data2/n_g_only_cav_transmon_amount_of_energies_4_CPnum_10_PhotonsNum_6.png" beforeDir="false" afterPath="$PROJECT_DIR$/data2/n_g_only_cav_transmon_amount_of_energies_4_CPnum_10_PhotonsNum_6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delta_energy_plots.py" beforeDir="false" afterPath="$PROJECT_DIR$/delta_energy_plots.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/energy_lines_plots.py" beforeDir="false" afterPath="$PROJECT_DIR$/energy_lines_plots.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parameters.py" beforeDir="false" afterPath="$PROJECT_DIR$/parameters.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spinchain.py" beforeDir="false" afterPath="$PROJECT_DIR$/spinchain.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/suppresed_our_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/suppresed_our_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_transmon.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_transmon.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/total_hamiltonian.py" beforeDir="false" afterPath="$PROJECT_DIR$/total_hamiltonian.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transmon.py" beforeDir="false" afterPath="$PROJECT_DIR$/transmon.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
     </list>
     <list id="f3c09fef-f186-4117-a3ca-a8f14fa77237" name="Revert heavy files" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -46,6 +101,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -57,48 +115,62 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Python tests.Python tests for test_transmon.test__compute_creation.executor": "Run",
-    "Python tests.Python tests in test_dot_energies.py.executor": "Run",
-    "Python tests.Python tests in test_for_work_QM.py.executor": "Debug",
-    "Python tests.Python tests in test_transmon.py.executor": "Run",
-    "Python.Suppresed_our_model.executor": "Debug",
-    "Python.Suppresed_their_model_1.executor": "Run",
-    "Python.dipole_matrix_elements_plots.executor": "Run",
-    "Python.energy_vs_something_plots.executor": "Run",
-    "Python.for_work_QM.executor": "Run",
-    "Python.for_work_mobileye.executor": "Debug",
-    "Python.hamiltonian of dot with repulsive culomb interaction.executor": "Run",
-    "Python.hamiltonian_of_dot_with_repulsive_culomb_interaction.executor": "Run",
-    "Python.hamiltonian_of_transmon_dot_with_repulsive_culomb_interaction.executor": "Run",
-    "Python.main.executor": "Debug",
-    "Python.practice.executor": "Debug",
-    "Python.test_for_work_QM.executor": "Run",
-    "Python.thread.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/User/PycharmProjects/For job interviews/for_work_QM.py",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "settings.sync",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Python tests.Python tests for test_transmon.test__compute_creation.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in SNS - double transmon + chain.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in case.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test_chain.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test_dot_energies.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test_for_work_QM.py.executor&quot;: &quot;Debug&quot;,
+    &quot;Python tests.Python tests in test_transmon.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python.SNS - double transmon + chain.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Suppresed_our_model.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.Suppresed_their_model_1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.chain.executor&quot;: &quot;Run&quot;,
+    &quot;Python.delta_energy_plots.executor&quot;: &quot;Run&quot;,
+    &quot;Python.dipole_matrix_elements_plots.executor&quot;: &quot;Run&quot;,
+    &quot;Python.energy_lines_plots.executor&quot;: &quot;Run&quot;,
+    &quot;Python.energy_vs_something_plots.executor&quot;: &quot;Run&quot;,
+    &quot;Python.for_work_QM.executor&quot;: &quot;Run&quot;,
+    &quot;Python.for_work_mobileye.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.hamiltonian of dot with repulsive culomb interaction.executor&quot;: &quot;Run&quot;,
+    &quot;Python.hamiltonian_of_dot_with_repulsive_culomb_interaction.executor&quot;: &quot;Run&quot;,
+    &quot;Python.hamiltonian_of_transmon_dot_with_repulsive_culomb_interaction.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.parameters.executor&quot;: &quot;Run&quot;,
+    &quot;Python.practice.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.probability plots.executor&quot;: &quot;Run&quot;,
+    &quot;Python.suppresed_our_model (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.suppresed_our_model.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test_for_work_QM.executor&quot;: &quot;Run&quot;,
+    &quot;Python.thread.executor&quot;: &quot;Run&quot;,
+    &quot;Python.transmon.executor&quot;: &quot;Run&quot;,
+    &quot;Python.utils.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/PycharmProjects/SNS_transmon/transmon_dot_graphs/numerical and analytical energy vs n_g N_g=-0.5 second transmon level.png&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\PycharmProjects\SNS_transmon" />
       <recent name="C:\Users\User\PycharmProjects\SNS_transmon\data" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="dipole_matrix_elements_plots" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.delta_energy_plots">
+    <configuration name="delta_energy_plots" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SNS_transmon" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -112,7 +184,30 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dipole_matrix_elements_plots.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/delta_energy_plots.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="energy_lines_plots" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="SNS_transmon" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/energy_lines_plots.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -144,7 +239,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="suppresed_article_model_1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="probability plots" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SNS_transmon" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -158,7 +253,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\User\PycharmProjects\SNS_transmon\suppresed_article_model_1.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/probability plots.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -167,7 +262,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="suppresed_our_model" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="suppresed_our_model (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SNS_transmon" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -181,29 +276,13 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\User\PycharmProjects\SNS_transmon\suppresed_our_model.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/suppresed_our_model.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
       <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Python tests for test_transmon.test__compute_creation" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="SNS_transmon" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_transmon.test__compute_creation&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
     <configuration name="Python tests in test_transmon.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
@@ -224,19 +303,19 @@
     </configuration>
     <list>
       <item itemvalue="Python.main" />
-      <item itemvalue="Python.dipole_matrix_elements_plots" />
-      <item itemvalue="Python.suppresed_our_model" />
-      <item itemvalue="Python.suppresed_article_model_1" />
-      <item itemvalue="Python tests.Python tests for test_transmon.test__compute_creation" />
+      <item itemvalue="Python.delta_energy_plots" />
+      <item itemvalue="Python.probability plots" />
+      <item itemvalue="Python.energy_lines_plots" />
+      <item itemvalue="Python.suppresed_our_model (1)" />
       <item itemvalue="Python tests.Python tests in test_transmon.py" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.delta_energy_plots" />
+        <item itemvalue="Python.probability plots" />
+        <item itemvalue="Python.energy_lines_plots" />
+        <item itemvalue="Python.suppresed_our_model (1)" />
         <item itemvalue="Python tests.Python tests in test_transmon.py" />
-        <item itemvalue="Python tests.Python tests for test_transmon.test__compute_creation" />
-        <item itemvalue="Python.suppresed_our_model" />
-        <item itemvalue="Python.suppresed_article_model_1" />
-        <item itemvalue="Python.dipole_matrix_elements_plots" />
       </list>
     </recent_temporary>
   </component>
@@ -306,7 +385,19 @@
       <workItem from="1727789818177" duration="7466000" />
       <workItem from="1729957666658" duration="4464000" />
       <workItem from="1730198680173" duration="4373000" />
-      <workItem from="1733296000328" duration="2336000" />
+      <workItem from="1733296000328" duration="9354000" />
+      <workItem from="1734862114379" duration="55391000" />
+      <workItem from="1737360460936" duration="57267000" />
+      <workItem from="1738761509049" duration="3463000" />
+      <workItem from="1738842839234" duration="53000" />
+      <workItem from="1738842899725" duration="51000000" />
+      <workItem from="1740401171531" duration="4061000" />
+      <workItem from="1740411924084" duration="5369000" />
+      <workItem from="1740478261755" duration="72385000" />
+      <workItem from="1741595827032" duration="6942000" />
+      <workItem from="1741676310247" duration="35635000" />
+      <workItem from="1742294722520" duration="45505000" />
+      <workItem from="1744016653221" duration="1634000" />
     </task>
     <task id="LOCAL-00001" summary="This is a working code of only the cavity and transmon alone! i tested the e vs n_g plots">
       <option name="closed" value="true" />
@@ -428,7 +519,119 @@
       <option name="project" value="LOCAL" />
       <updated>1725455158985</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Added partial tests for the transmon class and a test_utils which includes a function that tests if a matrix is hermitian">
+      <option name="closed" value="true" />
+      <created>1734004162651</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1734004162651</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Added energy levels plot tests for the transmon class">
+      <option name="closed" value="true" />
+      <created>1734973754937</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1734973754937</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Change test_utils to utils file in order for it to contain other functions later on">
+      <option name="closed" value="true" />
+      <created>1734973809550</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1734973809550</updated>
+    </task>
+    <task id="LOCAL-00019" summary="add test_plot_eigenfunctions_vs_phi_2x2 to transmon tests">
+      <option name="closed" value="true" />
+      <created>1735647419839</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1735647419839</updated>
+    </task>
+    <task id="LOCAL-00020" summary="added functions to utils:&#10;matrix_element_Mfi&#10;delta_energies&#10;upper_triangle">
+      <option name="closed" value="true" />
+      <created>1736675448213</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1736675448213</updated>
+    </task>
+    <task id="LOCAL-00021" summary="change in functions in utils:&#10;matrix_element_Mfi - more effective with numpy array handling&#10;delta_energies - change order or delta to delta_fi=E_f-E_i&#10;&#10;Add plot_x_y_color function">
+      <option name="closed" value="true" />
+      <created>1737362538068</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1737362538068</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Add **2 to all the relevant M because it's the correct form of FGR">
+      <option name="closed" value="true" />
+      <created>1737362608698</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1737362608698</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Add more attributes for functions to the test class.&#10;Add test_plot_delta_energy_vs_ng_dipole_transitions to plot delta energy vs n_g for the dipole transitions - still unfinished">
+      <option name="closed" value="true" />
+      <created>1737362769455</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1737362769455</updated>
+    </task>
+    <task id="LOCAL-00024" summary="test_plot_delta_energy_vs_ng_dipole_transitions to plot delta energy vs n_g for the dipole transitions - finished">
+      <option name="closed" value="true" />
+      <created>1737452773095</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1737452773095</updated>
+    </task>
+    <task id="LOCAL-00025" summary="added colored_line function in the previous commit">
+      <option name="closed" value="true" />
+      <created>1737453304768</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1737453304768</updated>
+    </task>
+    <task id="LOCAL-00026" summary="test_plot_delta_energy_vs_ng_dipole_transitions to plot delta energy vs n_g for the dipole transitions - finished">
+      <option name="closed" value="true" />
+      <created>1737453331693</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1737453331693</updated>
+    </task>
+    <task id="LOCAL-00027" summary="adding descriptions of E1-E0, E2-E0 ect to the delta energies vs ng plot">
+      <option name="closed" value="true" />
+      <created>1737551073571</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1737551073571</updated>
+    </task>
+    <task id="LOCAL-00028" summary="changing the range of the chain so it will align with the thesis equations">
+      <option name="closed" value="true" />
+      <created>1737551192415</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1737551192415</updated>
+    </task>
+    <task id="LOCAL-00029" summary="changing all the matrixs to sparse">
+      <option name="closed" value="true" />
+      <created>1738853111036</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1738853111037</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -489,9 +692,22 @@
     <MESSAGE value="Added docstring to main" />
     <MESSAGE value="Added docstring to suppressed article model" />
     <MESSAGE value="Added docstring to total hamiltonian" />
-    <MESSAGE value="Added docstring to cavity" />
     <MESSAGE value="Added docstring to transmon" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added docstring to transmon" />
+    <MESSAGE value="Added docstring to cavity" />
+    <MESSAGE value="Added partial tests for the transmon class and a test_utils which includes a function that tests if a matrix is hermitian" />
+    <MESSAGE value="Added energy levels plot tests for the transmon class" />
+    <MESSAGE value="Change test_utils to utils file in order for it to contain other functions later on" />
+    <MESSAGE value="add test_plot_eigenfunctions_vs_phi_2x2 to transmon tests" />
+    <MESSAGE value="added functions to utils:&#10;matrix_element_Mfi&#10;delta_energies&#10;upper_triangle" />
+    <MESSAGE value="change in functions in utils:&#10;matrix_element_Mfi - more effective with numpy array handling&#10;delta_energies - change order or delta to delta_fi=E_f-E_i&#10;&#10;Add plot_x_y_color function" />
+    <MESSAGE value="Add **2 to all the relevant M because it's the correct form of FGR" />
+    <MESSAGE value="Add more attributes for functions to the test class.&#10;Add test_plot_delta_energy_vs_ng_dipole_transitions to plot delta energy vs n_g for the dipole transitions - still unfinished" />
+    <MESSAGE value="added colored_line function in the previous commit" />
+    <MESSAGE value="test_plot_delta_energy_vs_ng_dipole_transitions to plot delta energy vs n_g for the dipole transitions - finished" />
+    <MESSAGE value="adding descriptions of E1-E0, E2-E0 ect to the delta energies vs ng plot" />
+    <MESSAGE value="changing the range of the chain so it will align with the thesis equations" />
+    <MESSAGE value="changing all the matrixs to sparse" />
+    <option name="LAST_COMMIT_MESSAGE" value="changing all the matrixs to sparse" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -506,27 +722,68 @@
           <line>80</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test_chain.py</url>
+          <line>30</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/SNS - double transmon + chain.py</url>
+          <line>183</line>
+          <option name="timeStamp" value="55" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/SNS - double transmon + chain.py</url>
+          <line>125</line>
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/SNS - double transmon + chain.py</url>
+          <line>390</line>
+          <option name="timeStamp" value="60" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/probability plots.py</url>
+          <line>58</line>
+          <option name="timeStamp" value="65" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/delta_energy_plots.py</url>
+          <line>58</line>
+          <option name="timeStamp" value="66" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
         <watch expression="1j * (n_values[m]-n_values[n]) / (np.pi * ((n_values[m]-n_values[n]) ** 2 - 1/4))" language="Python" />
+        <watch expression="descriptions_numerical_n_g_N_g_half" language="Python" />
       </configuration>
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/SNS_transmon$hamiltonian_of_dot_with_repulsive_culomb_interaction.coverage" NAME="hamiltonian_of_dot_with_repulsive_culomb_interaction Coverage Results" MODIFIED="1713700463488" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/SNS_transmon$hamiltonian_of_transmon_dot_with_repulsive_culomb_interaction.coverage" NAME="hamiltonian_of_transmon_dot_with_repulsive_culomb_interaction Coverage Results" MODIFIED="1722435134069" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SNS_transmon$probability_plots.coverage" NAME="probability plots Coverage Results" MODIFIED="1742570127925" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/SNS_transmon$Suppresed_their_model_1.coverage" NAME="Suppresed_their_model_1 Coverage Results" MODIFIED="1724752345817" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SNS_transmon$hamiltonian_of_transmon_dot_with_repulsive_culomb_interaction.coverage" NAME="hamiltonian_of_transmon_dot_with_repulsive_culomb_interaction Coverage Results" MODIFIED="1722435134069" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SNS_transmon$hamiltonian_of_dot_with_repulsive_culomb_interaction.coverage" NAME="hamiltonian_of_dot_with_repulsive_culomb_interaction Coverage Results" MODIFIED="1713700463488" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/SNS_transmon$energy_vs_something_plots.coverage" NAME="energy_vs_something_plots Coverage Results" MODIFIED="1723122028958" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SNS_transmon$SNS___double_transmon___chain.coverage" NAME="SNS - double transmon + chain Coverage Results" MODIFIED="1740902793152" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SNS_transmon$parameters.coverage" NAME="parameters Coverage Results" MODIFIED="1741701770980" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/SNS_transmon$thread.coverage" NAME="thread Coverage Results" MODIFIED="1733404229368" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/anaconda3/Lib/concurrent/futures" />
-    <SUITE FILE_PATH="coverage/SNS_transmon$dipole_matrix_elements_plots.coverage" NAME="dipole_matrix_elements_plots Coverage Results" MODIFIED="1723121677577" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/SNS_transmon$.coverage" NAME=" Coverage Results" MODIFIED="1727799919108" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/SNS_transmon$main.coverage" NAME="main Coverage Results" MODIFIED="1733404194018" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SNS_transmon$dipole_matrix_elements_plots.coverage" NAME="dipole_matrix_elements_plots Coverage Results" MODIFIED="1740901894334" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SNS_transmon$chain.coverage" NAME="chain Coverage Results" MODIFIED="1737467333937" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SNS_transmon$main.coverage" NAME="main Coverage Results" MODIFIED="1741626083987" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SNS_transmon$.coverage" NAME=" Coverage Results" MODIFIED="1742123679844" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SNS_transmon$suppresed_our_model__1_.coverage" NAME="suppresed_our_model (1) Coverage Results" MODIFIED="1742140856773" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/SNS_transmon$test_for_work_QM.coverage" NAME="test_for_work_QM Coverage Results" MODIFIED="1721819573492" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/SNS_transmon$practice.coverage" NAME="practice Coverage Results" MODIFIED="1733404425154" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../For job interviews" />
     <SUITE FILE_PATH="coverage/SNS_transmon$for_work_QM.coverage" NAME="for_work_QM Coverage Results" MODIFIED="1723471315596" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SNS_transmon$delta_energy_plots.coverage" NAME="delta_energy_plots Coverage Results" MODIFIED="1742731754561" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SNS_transmon$energy_lines_plots.coverage" NAME="energy_lines_plots Coverage Results" MODIFIED="1742475809450" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SNS_transmon$utils.coverage" NAME="utils Coverage Results" MODIFIED="1737362372287" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/SNS_transmon$Suppresed_our_model.coverage" NAME="Suppresed_our_model Coverage Results" MODIFIED="1723125778630" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/SNS_transmon$for_work_mobileye.coverage" NAME="for_work_mobileye Coverage Results" MODIFIED="1729965234250" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../For job interviews" />
+    <SUITE FILE_PATH="coverage/SNS_transmon$transmon.coverage" NAME="transmon Coverage Results" MODIFIED="1741702446678" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SNS_transmon$suppresed_our_model.coverage" NAME="suppresed_our_model Coverage Results" MODIFIED="1741792426412" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

@@ -22,7 +22,7 @@ class Transmon:
         compute_cos_phi_half(): Computes the matrix representation of the cos(phi/2) operator.
     """
 
-    def __init__(self, E_C, n_0, E_J_max, d=0, flux_0=1, size_of_subspace=None):
+    def __init__(self, E_C, n_0, E_J_max=0, d=0, flux_0=1, size_of_subspace=None):
         """
         Initializes the Transmon object.
 
@@ -69,7 +69,7 @@ class Transmon:
         n = np.diag(n_values)
         return n
 
-    def compute_hamiltonian(self, flux=0, n_g=0, cutoff_transmon=False):
+    def compute_hamiltonian(self, n_g=0):
         """
         Computes the Hamiltonian of the transmon qubit.
 
@@ -82,9 +82,9 @@ class Transmon:
             ndarray: The Hamiltonian matrix.
         """
         D = 4 * self.E_C * (self.n_hat - n_g * np.eye(self.dimension)) ** 2
-        asymmetry = (self.E_J_max / 2) * np.sqrt(np.cos(np.pi * flux / self.flux_0) ** 2 +
-                                                 (self.d ** 2) * np.sin(np.pi * flux / self.flux_0) ** 2)
-        H_temp = D - asymmetry * (self.creation + self.annihilation)
+        # asymmetry = np.sqrt(np.cos(np.pi * flux / self.flux_0) ** 2 +
+        #                     (self.d ** 2) * np.sin(np.pi * flux / self.flux_0) ** 2)
+        H_temp = D - (self.E_J_max / 2) * (self.creation + self.annihilation)
         return H_temp
 
 

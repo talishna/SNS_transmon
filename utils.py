@@ -7,12 +7,17 @@ from matplotlib import colors
 from matplotlib.cm import get_cmap
 from matplotlib.collections import LineCollection
 import warnings
+import scipy.sparse as sp
 
 
 def is_hermitian(matrix):
     """Custom assertion to check if a matrix is Hermitian."""
     is_square = matrix.shape[0] == matrix.shape[1]
-    is_hermitian = np.allclose(matrix, matrix.conj().T)
+    tol = 1e-10
+    if isinstance(matrix, np.ndarray):
+        is_hermitian = np.allclose(matrix, matrix.conj().T, atol=tol)
+    elif sp.issparse(matrix):
+        is_hermitian = np.allclose(matrix.data, matrix.getH().data, atol=tol)
     return is_square and is_hermitian
 
 
@@ -83,6 +88,29 @@ def upper_triangle(matrix: np.ndarray, include_diagonal: bool = False) -> np.nda
     upper_tri = matrix[np.triu_indices(matrix.shape[0], k=k)]
 
     return upper_tri
+
+
+def transform_operator(operator, eigenvectors):
+    """
+    Transform the given operator using the provided eigenvectors.
+
+    Parameters:
+    operator (np.ndarray): The operator to be transformed. Can be 2D or 3D.
+    eigenvectors (np.ndarray): The eigenvectors used for the transformation. Should match the dimensionality of n_operator.
+
+    Returns:
+    np.ndarray: The transformed operator.
+    """
+    if operator.ndim == 3:  # for array inputs
+        transformed_operator = np.zeros_like(operator)
+        for i in range(operator.shape[0]):
+            transformed_operator[i, :, :] = eigenvectors[i, :, :] @ operator[i, :, :] @ eigenvectors[i, :, :].conj().T
+    elif operator.ndim == 2:
+        transformed_operator = eigenvectors @ operator @ eigenvectors.conj().T
+    else:  # for scalar inputs
+        raise ValueError("The operator must be 2D or 3D if order to do the basis transformation")
+    return transformed_operator
+
 
 def plot_x_y_color(color_values, x, y, xlabel, ylabel, title, path = None, wo_small_values=True):
     """
@@ -210,3 +238,87 @@ def colored_line(x, y, c, ax, **lc_kwargs):
     lc.set_array(c)  # set the colors of each segment
 
     return ax.add_collection(lc)
+
+
+def plot_x_y_color(color_values, x, y, xlabel, ylabel, title, descriptions=None, wo_small_values=True):
+    """
+    Plots x and y values with a color gradient based on color_values.
+
+    Parameters:
+        color_values (np.ndarray): Array of values used to color the line segments. Should match the dimensions of y.
+        x (np.ndarray): Array of x values.
+        y (np.ndarray): 2D array of y values. Each column represents a different line segment.
+        xlabel (str): Label for the x-axis.
+        ylabel (str): Label for the y-axis.
+        title (str): Title of the plot.
+        wo_small_values (bool): If True, sets color values below 1e-14 to zero.
+
+    Returns:
+        None: Displays the plot.
+    """
+    # Copy to avoid modifying original color_values
+    color_values = color_values.copy()
+
+    if wo_small_values:
+        color_values = np.where(color_values < 1e-14, 0, color_values)
+
+    # linear transformation to map all color_values to the range 0 to 1
+    # min_val = np.min(color_values)
+    # max_val = np.max(color_values)
+    # transformed_color_values = (color_values - min_val) / (max_val - min_val)
+    # Combine color ranges for normalization
+    norm = colors.Normalize(vmin=np.min(color_values), vmax=np.max(color_values), clip=False)
+    normalized_color_values = norm(color_values)
+
+    # debug
+    print(f"Color values before normalization: min = {np.min(color_values)}, max = {np.max(color_values)}")
+    print(
+        f"Normalized color values: min = {np.min(normalized_color_values)}, max = {np.max(normalized_color_values)}")
+
+    cmap = plt.get_cmap('viridis')
+    fig, ax = plt.subplots(figsize=(6.5, 4.5))
+    # creates a figure and axes objects. figure contains all the elements of a
+    # plot - subplots,titles,labels, legends. axes is an individual plotting area within the fig, this is the plot
+    # itself. fig contains the axes (subplots)
+
+    # Define distinct legend colors
+    distinct_colors = list(colors.TABLEAU_COLORS.values())  # 10 distinct colors
+    # List to store legend entries
+    legend_entries = []
+
+    for i in range(color_values.shape[1]):
+        points = np.array([x, y[:, i]]).T.reshape(-1, 1, 2)
+        segments = np.concatenate([points[:-1], points[1:]], axis=1)
+
+        lc = LineCollection(segments, cmap=cmap, norm=norm, linewidth=1)
+        lc.set_array(normalized_color_values[:, i])
+        ax.add_collection(lc)  # add the line collection to the ax
+
+        # Get a distinct color for the legend
+        legend_color = distinct_colors[i % len(distinct_colors)]
+        # Add a small dot at the first point using the distinct legend color
+        ax.scatter(x[0], y[0, i], color=legend_color, s=30, edgecolor='black', zorder=3, label=descriptions[i])
+        # If descriptions exist, add them to the legend
+        if descriptions is not None and i < len(descriptions):
+            legend_entries.append(mlines.Line2D([0], [0], marker='o', color='w',
+                                                markerfacecolor=legend_color, markersize=6, label=descriptions[i]))
+
+        if i == 0:
+            # create the colorbar based on the first line collection to ensure it appears once
+            cb = plt.colorbar(lc, ax=ax)
+            cb.set_label('Dipole operator transition amplitude')
+            print("Colorbar limits:", lc.norm.vmin, lc.norm.vmax)  # print colorbar limits
+
+    # Add legend if descriptions are provided
+    if descriptions:
+        ax.legend(handles=legend_entries, loc="upper right", fontsize=8, frameon=True)
+
+    plt.ylim(7, 8)
+    # plt.savefig(f'{str(title)}.svg', format='svg')
+    # plt.xlim(-2,2)
+    ax.autoscale()  # adjusts the axis limits to fit the data in the subplot
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
+    plt.title(title)
+    plt.grid(True)  # Add grid lines
+    plt.show()

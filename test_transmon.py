@@ -12,7 +12,7 @@ from utils import is_hermitian, matrix_element_Mfi, delta_energies, upper_triang
 
 E_J = np.array([1,5,10,50])
 E_C = 1
-# N = 5
+# N_sites = 5
 number_of_energies = 5
 
 class TestTransmon(unittest.TestCase):
@@ -204,7 +204,7 @@ class TestTransmon(unittest.TestCase):
 
         timestamp = time.strftime("%Y%m%d-%H%M%S")
         plot_filename = os.path.join("transmon_test_plots", f"Transmon Transitions due to Dipole {timestamp}.png")
-        plt.savefig(plot_filename, format='svg')
+        plt.savefig(plot_filename, format='png')
         plt.show()
 
         # plot_x_y_color(big_M, self.n_g_array, big_delta, "n_g", "Delta Energy", 'Transmon Transitions due to Dipole', path=path)

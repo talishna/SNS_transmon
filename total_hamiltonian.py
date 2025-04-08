@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import time
 from transmon import Transmon
 from cavity import Cavity
-from chain import Chain
+from spinchain import SpinChain
 
 class TotalHamiltonian:
     """
@@ -17,7 +17,7 @@ class TotalHamiltonian:
         size_of_subspace_T (int): Size of the computational subspace for the transmon.
         transmon (Transmon): Instance of the Transmon class representing the transmon qubit.
         cavity (Cavity): Instance of the Cavity class representing the cavity.
-        chain (Chain): Instance of the Chain class representing the spin chain.
+        chain (SpinChain): Instance of the Chain class representing the spin chain.
 
     Methods:
         hamiltonian_int_cavity_transmon(n_g=0, cutoff_transmon=False, size_subspace_transmon=None, U=None):
@@ -59,7 +59,7 @@ class TotalHamiltonian:
         self.transmon = Transmon(E_C=E_C, n_0=n_0, E_J_max=E_J_max, d=d, flux_0=flux_0,
                                  size_of_subspace=size_subspace_transmon)  # This is a specific instance of the transmon class
         self.cavity = Cavity(Wc=Wc, max_num_photons=max_num_photons)  # This is a specific instance of the cavity class
-        self.chain = Chain(N=N, t=t, epsilon_r=epsilon_r)
+        self.chain = SpinChain(N_sites=N, t=t, epsilon_r=epsilon_r)
 
     def hamiltonian_int_cavity_transmon(self, n_g=0, cutoff_transmon=False, size_subspace_transmon=None, U=None):
         """
@@ -96,13 +96,13 @@ class TotalHamiltonian:
         exp_flux_plus = np.exp(1j * np.pi * flux / (2 * self.transmon.flux_0))  # should be next to phi_L and -phi_R
         exp_flux_minus = np.conj(exp_flux_plus)  # should be next to -phi_L and phi_R
         H = np.zeros((self.transmon.dimension * self.chain.dimension, self.transmon.dimension * self.chain.dimension))
-        if self.chain.N < 2:
+        if self.chain.N_spins < 2:
             return H
         left_term = np.kron(exp_flux_plus * self.transmon.creation,
                             np.kron(self.chain.s_minus,
-                                    np.kron(self.chain.s_minus, np.eye(2 ** (self.chain.N - 2)))))
+                                    np.kron(self.chain.s_minus, np.eye(2 ** (self.chain.N_spins - 2)))))
         right_term = np.kron(exp_flux_minus * self.transmon.creation,
-                             np.kron(np.eye(2 ** (self.chain.N - 2)),
+                             np.kron(np.eye(2 ** (self.chain.N_spins - 2)),
                                      np.kron(self.chain.s_minus, self.chain.s_minus)))
         H = self.gamma_L * (left_term + left_term.conj().T) + \
             self.gamma_R * (right_term + right_term.conj().T)

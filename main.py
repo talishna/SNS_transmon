@@ -2,12 +2,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 from transmon import Transmon
 from cavity import Cavity
-from chain import Chain
+from spinchain import SpinChain
 from data import Data
 import os
 
 """
-Simple example of uses for the classes Transmon Cavity Chain. For a more complex one see "suppresed_our_model" and "suppresed_article_model"
+Simple example of uses for the classes Transmon Cavity SpinChain. For a more complex one see "suppresed_our_model" and "suppresed_article_model"
 """
 
 # Transmon parameters
@@ -29,8 +29,8 @@ Wc = Wc0 - lamb_shift  # bare qubit
 # Wq = Wq0 + lamb_shift  # bare cavity
 max_num_photons = 6  # number of photons
 
-# Chain parameters
-N = 2  # number of chain fermions\
+# SpinChain parameters
+N_sites = 2  # number of chain fermions\
 t = 0.1  # chain hopping
 epsilon_r = 0  # on site energy in the chain
 gamma_L = 0.1  # chain coupling to the left josephson junction
@@ -42,7 +42,7 @@ g_d = 1
 # General parameters
 steps = 200
 flux_array = np.linspace(-flux_0, flux_0, steps)
-n_total = (2 * n_0 + 1) * (max_num_photons + 1) * (2 ** N)
+n_total = (2 * n_0 + 1) * (max_num_photons + 1) * (2 ** N_sites)
 n_g_array = np.linspace(-2, 2, steps)
 
 # Instantiate classes
@@ -50,8 +50,8 @@ transmon1 = Transmon(E_C, n_0, E_J_max, d, flux_0, size_of_transmon_subspace)
 cavity1 = Cavity(Wc, max_num_photons)
 H_transmon = transmon1.compute_hamiltonian(n_g=1)
 H_cavity = cavity1.compute_hamiltonian()
-chain1 = Chain(N=N, t=t, epsilon_r=epsilon_r)
-plot_data = Data(E_C=E_C, n_0=n_0, E_J_max=E_J_max, d=d, flux_0=flux_0, Wc=Wc, max_num_photons=max_num_photons, N=N,
+chain1 = SpinChain(N_sites=N_sites, t=t, epsilon_r=epsilon_r)
+plot_data = Data(E_C=E_C, n_0=n_0, E_J_max=E_J_max, d=d, flux_0=flux_0, Wc=Wc, max_num_photons=max_num_photons, N=N_sites,
                  t=t, epsilon_r=epsilon_r, g=g, gamma_L=gamma_L, gamma_R=gamma_R,
                  flux_array=flux_array, n_g_array=n_g_array)
 

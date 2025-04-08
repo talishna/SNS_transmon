@@ -51,11 +51,11 @@ class Data:
         self.n_g_array = n_g_array
         self.cutoff_transmon = cutoff_transmon
         self.size_subspace_transmon = size_subspace_transmon
-        self.total_dim = (2*n_0+1)*(max_num_photons+1)*(2**N)
         self.H_total = TotalHamiltonian(E_C=E_C, n_0=n_0, E_J_max=E_J_max, d=d, flux_0=flux_0,
                                         Wc=Wc, max_num_photons=max_num_photons, N=N, t=t, epsilon_r=epsilon_r, g=g,
                                         gamma_L=gamma_L, gamma_R=gamma_R, cutoff_transmon=cutoff_transmon,
                                         size_subspace_transmon=size_subspace_transmon)
+        self.total_dim = self.H_total.total_hamiltonian(n_g=0).shape[1]
         self.eigenvalues_n_g = None
 
     def eigen_for_each_n_g(self):
